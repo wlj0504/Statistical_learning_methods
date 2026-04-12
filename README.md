@@ -1,60 +1,41 @@
-🛳️ Titanic Survival Prediction (泰坦尼克号生还者预测)
-本项目是基于 Kaggle 经典竞赛 Titanic - Machine Learning from Disaster 的机器学习实战项目。项目使用了统计学习方法中的经典分类算法（随机森林与支持向量机）来预测泰坦尼克号乘客的生还情况。
+# 泰坦尼克号生还者预测 (Titanic Survival Prediction)
 
-📁 文件结构
-当前仓库包含以下文件和目录：
+本项目是基于 Kaggle 经典竞赛 [Titanic - Machine Learning from Disaster](https://www.kaggle.com/c/titanic) 的统计学习实战练习。目标是利用乘客的个人信息（如年龄、性别、舱位等级等）来预测其在泰坦尼克号事故中是否生还。
 
-数据文件
-train.csv: 训练集数据，包含乘客特征及是否生还的标签（Survived）。
+## 📁 目录结构
 
-test.csv: 测试集数据，包含乘客特征，需预测其生还情况。
+* **数据集 (Data)**
+    * `train.csv`: 训练集，包含特征及标签 $y$（生还与否）。
+    * `test.csv`: 测试集，用于评估模型性能并生成最终提交结果。
+    * `gender_submission.csv`: 官方提供的预测示例。
+* **模型实现 (Models)**
+    * `RandomForestClassifier.py`: 使用随机森林（Random Forest）集成算法实现的分类模型。
+    * `SVM.py`: 使用支持向量机（Support Vector Machine）实现的分类模型。
+* **预测结果 (Submissions)**
+    * `submission.csv`: 随机森林模型生成的预测结果。
+    * `svm_submission.csv`: SVM 模型生成的预测结果。
+* **其他**
+    * `.gitignore`: 忽略非必要文件（如虚拟环境、缓存等）。
 
-gender_submission.csv: Kaggle 提供的官方示例提交文件（假设所有女性都生还）。
+## 🛠 算法原理
 
-源代码
-RandomForestClassifier.py: 基于 随机森林 (Random Forest) 算法构建预测模型的 Python 脚本。包含数据预处理、模型训练及结果预测。
+本项目主要采用了以下两种统计学习方法：
 
-SVM.py: 基于 支持向量机 (Support Vector Machine) 算法构建预测模型的 Python 脚本。
+### 1. 支持向量机 (SVM)
+支持向量机通过寻找一个最优超平面，使得不同类别的样本点到该超平面的几何间隔最大。对于线性不可分数据，通过核函数将特征映射到高维空间。
+其核心优化问题为：
+$$\min_{\mathbf{w}, b} \frac{1}{2} \|\mathbf{w}\|^2$$
+满足约束条件：
+$$y_i(\mathbf{w}^T \mathbf{x}_i + b) \geq 1, \quad i=1, 2, \dots, N$$
 
-预测结果
-submission.csv: 由 RandomForestClassifier.py 运行生成的最终预测结果文件，可直接提交至 Kaggle。
+### 2. 随机森林 (Random Forest)
+随机森林是一种基于决策树的 Bagging 集成学习方法。它通过对样本和特征进行随机采样，构建多棵决策树，并利用投票法（Voting）决定最终分类结果。
+设第 $k$ 棵树的预测结果为 $h_k(\mathbf{x})$，则最终预测结果 $H(\mathbf{x})$ 为：
+$$H(\mathbf{x}) = \text{argmax}_Y \sum_{k=1}^K I(h_k(\mathbf{x}) = Y)$$
 
-svm_submission.csv: 由 SVM.py 运行生成的最终预测结果文件，可直接提交至 Kaggle。
+## 🚀 使用说明
 
-配置文件
-.gitignore: Git 忽略配置文件，用于忽略不需要提交至版本库的本地环境文件。
-
-🚀 快速开始
-1. 环境依赖
-运行本项目代码需要 Python 环境，并安装以下主要第三方库：
-
-pandas (数据分析与处理)
-
-scikit-learn (机器学习算法库)
-
-您可以运行以下命令安装所需依赖：
-
-Bash
-pip install pandas scikit-learn
-2. 运行代码
-克隆本项目到本地后，确保您的终端或命令行工具处于当前项目目录下。
-
-运行随机森林模型：
-
-Bash
-python RandomForestClassifier.py
-运行结束后，会在当前目录下生成 submission.csv 文件。
-
-运行 SVM 模型：
-
-Bash
-python SVM.py
-运行结束后，会在当前目录下生成 svm_submission.csv 文件。
-
-📊 模型介绍
-随机森林 (Random Forest): 一种集成学习方法，通过构建多个决策树并进行投票来决定最终分类结果，对特征缺失和非线性关系有较好的鲁棒性。
-
-支持向量机 (SVM): 一种强大的分类算法，旨在寻找一个最优超平面将不同类别的数据点进行划分，适用于高维空间数据。
-
-🔗 相关链接
-Kaggle: Titanic - Machine Learning from Disaster
+### 1. 安装依赖
+确保已安装 Python 以及相关数据科学库：
+```bash
+pip install pandas numpy scikit-learn
