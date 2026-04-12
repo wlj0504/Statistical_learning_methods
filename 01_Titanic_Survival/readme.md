@@ -31,6 +31,7 @@ $$y_i(\mathbf{w}^T \mathbf{x}_i + b) \geq 1, \quad i=1, 2, \dots, N$$
 ### 2. 随机森林 (Random Forest)
 随机森林是一种基于决策树的 Bagging 集成学习方法。它通过对样本和特征进行随机采样，构建多棵决策树，并利用投票法（Voting）决定最终分类结果。
 设第 $k$ 棵树的预测结果为 $h_k(\mathbf{x})$，则最终预测结果 $H(\mathbf{x})$ 为：
+
 $$H(\mathbf{x}) = \text{argmax}_Y \sum_{k=1}^K I(h_k(\mathbf{x}) = Y)$$
 
 ## 🚀 使用说明
