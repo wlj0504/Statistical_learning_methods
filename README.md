@@ -1,42 +1,24 @@
-# 🚢泰坦尼克号生还者预测 (Titanic Survival Prediction)
+# Kaggle 机器学习实战演练库 🚀
 
-本项目是基于 Kaggle 经典竞赛 [Titanic - Machine Learning from Disaster](https://www.kaggle.com/c/titanic) 的统计学习实战练习。目标是利用乘客的个人信息（如年龄、性别、舱位等级等）来预测其在泰坦尼克号事故中是否生还。
+欢迎来到我的 Kaggle 竞赛与机器学习练习仓库。这里记录了我在探索统计学习方法和机器学习算法过程中的实战代码、数据分析与思考总结。
 
-## 📁 目录结构
+## 👨‍💻 关于作者
+* **Author:** 王令基
+* **Focus:** 致力于通过实际项目加深对各类算法原理（如 SVM、随机森林等）的工程化理解。
 
-* **数据集 (Data)**
-    * `train.csv`: 训练集，包含特征及标签 $y$（生还与否）。
-    * `test.csv`: 测试集，用于评估模型性能并生成最终提交结果。
-    * `gender_submission.csv`: 官方提供的预测示例。
-* **模型实现 (Models)**
-    * `RandomForestClassifier.py`: 使用随机森林（Random Forest）集成算法实现的分类模型。
-    * `SVM.py`: 使用支持向量机（Support Vector Machine）实现的分类模型。
-* **预测结果 (Submissions)**
-    * `submission.csv`: 随机森林模型生成的预测结果。
-    * `svm_submission.csv`: SVM 模型生成的预测结果。
-* **其他**
-    * `.gitignore`: 忽略非必要文件（如虚拟环境、缓存等）。
+## 📂 项目目录
 
-## 🛠 算法原理
+下面是我目前参与或练习过的 Kaggle 项目列表。点击项目名称可进入对应文件夹查看详细的代码实现和说明。
 
-本项目主要采用了以下两种统计学习方法：
+| 序号 | 项目名称 / 链接 | 赛题类型 | 主要使用的算法 | 状态 |
+| :---: | :--- | :--- | :--- | :---: |
+| 01 | [Titanic: Machine Learning from Disaster](./01_Titanic_Survival) | 二分类 | 支持向量机 (SVM), 随机森林 | ✅ 已完成 |
+| 02 | *(待补充)* | - | - | 🏃‍♂️ 进行中 |
+| 03 | *(待补充)* | - | - | ⏳ 计划中 |
 
-### 1. 支持向量机 (SVM)
-支持向量机通过寻找一个最优超平面，使得不同类别的样本点到该超平面的几何间隔最大。对于线性不可分数据，通过核函数将特征映射到高维空间。
-其核心优化问题为：
-$$\min_{\mathbf{w}, b} \frac{1}{2} \|\mathbf{w}\|^2$$
-满足约束条件：
-$$y_i(\mathbf{w}^T \mathbf{x}_i + b) \geq 1, \quad i=1, 2, \dots, N$$
+## 🛠 开发环境与工具
+* **IDE:** PyCharm
+* **主要依赖库:** `scikit-learn`, `pandas`, `numpy`
 
-### 2. 随机森林 (Random Forest)
-随机森林是一种基于决策树的 Bagging 集成学习方法。它通过对样本和特征进行随机采样，构建多棵决策树，并利用投票法（Voting）决定最终分类结果。
-设第 $k$ 棵树的预测结果为 $h_k(\mathbf{x})$，则最终预测结果 $H(\mathbf{x})$ 为：
-
-$$H(\mathbf{x}) = \text{argmax}_Y \sum_{k=1}^K I(h_k(\mathbf{x}) = Y)$$
-
-## 🚀 使用说明
-
-### 1. 安装依赖
-确保已安装 Python 以及相关数据科学库：
-```bash
-pip install pandas numpy scikit-learn
+## 📝 学习笔记与总结
+*(这里可以后续记录你刷题过程中的一些通用心得，例如特征工程的套路、调参的经验等)*
