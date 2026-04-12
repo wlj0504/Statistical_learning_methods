@@ -1,4 +1,4 @@
-# 泰坦尼克号生还者预测 (Titanic Survival Prediction)
+# 🚢泰坦尼克号生还者预测 (Titanic Survival Prediction)
 
 本项目是基于 Kaggle 经典竞赛 [Titanic - Machine Learning from Disaster](https://www.kaggle.com/c/titanic) 的统计学习实战练习。目标是利用乘客的个人信息（如年龄、性别、舱位等级等）来预测其在泰坦尼克号事故中是否生还。
 
