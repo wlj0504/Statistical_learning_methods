@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd##pandas是一个库，可以读取 CSV、Excel、SQL 数据库等格式的数据
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
